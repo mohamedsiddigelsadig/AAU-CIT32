@@ -12,7 +12,7 @@ export interface CommitteeMemberInput {
 
 export async function createCommitteeMember(input: CommitteeMemberInput) {
   const supabase = await assertPermission("committee");
-  const { error } = await supabase.from("committee_members").insert(input);
+  const { error } = await supabase.from("committee_members").insert(input as any);
   if (error) throw error;
   revalidatePath("/committee");
   revalidatePath("/admin/committee");

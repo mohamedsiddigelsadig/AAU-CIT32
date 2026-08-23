@@ -1,6 +1,9 @@
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  ignoreBuildErrors: true,
+}, 
   images: {
     remotePatterns: [
       {

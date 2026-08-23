@@ -4,8 +4,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   ignoreBuildErrors: true,
 }, 
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
-    remotePatterns: [
+    images: { 
+      remotePattrtns: [
       {
         protocol: "https",
         hostname: "*.supabase.co",

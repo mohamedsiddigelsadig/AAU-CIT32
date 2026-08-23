@@ -20,7 +20,7 @@ export async function createCommitteeMember(input: CommitteeMemberInput) {
 
 export async function updateCommitteeMember(id: string, input: CommitteeMemberInput) {
   const supabase = await assertPermission("committee");
-  const { error } = await supabase.from("committee_members").update(input).eq("id", id);
+  const { error } = await supabase.from("committee_members").update(input as any).eq("id", id);
   if (error) throw error;
   revalidatePath("/committee");
   revalidatePath("/admin/committee");
